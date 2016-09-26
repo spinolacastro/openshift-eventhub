@@ -1,3 +1,0 @@
-#!/bin/bash
-
-oc observe events --no-headers --all-namespaces -a '{.lastTimestamp}' -a '{.reason}' -a '{.message}' -- python send.py

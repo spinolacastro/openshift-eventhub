@@ -1,9 +1,6 @@
 #!/bin/bash
 
-shopt -s dotglob
-echo "---> Installing application source ..."
-mv /tmp/src/* ./
-
 if [[ -f requirements.txt ]]; then
   echo "---> Installing dependencies ..."
   pip install --user -r requirements.txt
+fi
