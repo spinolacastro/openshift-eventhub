@@ -18,11 +18,13 @@ RUN INSTALL_PKGS="python-pip python-virtualenv" && \
   chown -R 1001:0 /opt/eventhub
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
-COPY . $HOME
+COPY bin/ /usr/bin/
+COPY src/ $HOME/
 
 USER 1001
 WORKDIR ${HOME}
 
-RUN /opt/eventhub/bin/build
+RUN build
 
-ENTRYPOINT ["/opt/eventhub/bin/run"]
+ENTRYPOINT ["container-entrypoint"]
+CMD ["run"]
