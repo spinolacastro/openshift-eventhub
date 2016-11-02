@@ -16,7 +16,7 @@ def send(namespace, id, time, reason, message, count):
             "id": id,
             "reason": reason,
             "message": message,
-            "count": count
+            "eventcount": count
         }
     print(json.dumps(message))
     return sbs.send_event('toanalytics', json.dumps(message))
