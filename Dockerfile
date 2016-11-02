@@ -21,10 +21,13 @@ RUN INSTALL_PKGS="python-pip python-virtualenv" && \
 COPY bin/ /usr/bin/
 COPY src/ $HOME/
 
-USER 1001
 WORKDIR ${HOME}
 
 RUN build
+
+RUN fix-permissions ./
+
+USER 1001
 
 ENTRYPOINT ["container-entrypoint"]
 CMD ["run"]
